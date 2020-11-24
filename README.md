@@ -13,3 +13,5 @@
 5、websocket：乐鱼体育实时数据（主要连接服务器并实时获取推送信息，不涉及数据清洗）
 
 6、cookie_analysis：某些网站cookie逆向生成
+
+7、recruit：腾讯/网易招聘爬取
