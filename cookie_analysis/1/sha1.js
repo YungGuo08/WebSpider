@@ -151,37 +151,16 @@ function hash(_0x598fff) {
   return _0x46713f(_0x5c597b(_0x233cde(_0x598fff), _0x598fff["length"] * _0x49b45e));
 }
 
-function go(_0x1c7f44) {
-
-  var _0x3e11b0 = new Date();
-
-  function _0x11a5a3(_0xd67d77, _0x1a9c8f) {
-    var _0x25b8c7 = _0x1c7f44["chars"]["length"];
-
-    for (var _0x23a368 = 0; _0x23a368 < _0x25b8c7; _0x23a368++) {
-      for (var _0x2e8521 = 0; _0x2e8521 < _0x25b8c7; _0x2e8521++) {
-        var _0x1af310 = _0x1a9c8f[0] + _0x1c7f44["chars"]["substr"](_0x23a368, 1) + _0x1c7f44["chars"]["substr"](_0x2e8521, 1) + _0x1a9c8f[1];
-
-        if (hash(_0x1af310) == _0xd67d77) {
-          return [_0x1af310, new Date() - _0x3e11b0];
+function go(data) {
+    var chars = data["chars"]["length"];
+    for (var i = 0; i < chars; i++) {
+      for (var j = 0; j < chars; j++) {
+        var cookie = data["bts"][0] + data["chars"]["substr"](i, 1) + data["chars"]["substr"](j, 1) + data["bts"][1];
+        if (hash(cookie) == data["ct"]) {
+          return cookie;
         }
       }
     }
-  }
-
-  var _0x3227c3 = _0x11a5a3(_0x1c7f44["ct"], _0x1c7f44["bts"]);
-
-  if (_0x3227c3) {
-    var _0x528bb0;
-
-    if (_0x1c7f44["wt"]) {
-      _0x528bb0 = parseInt(_0x1c7f44["wt"]) > _0x3227c3[1] ? parseInt(_0x1c7f44["wt"]) - _0x3227c3[1] : 500;
-    } else {
-      _0x528bb0 = 1500;
-    }
-
-    return _0x1c7f44["tn"] + "=" + _0x3227c3[0] + ";Max-age=" + _0x1c7f44["vt"] + "; path = /";
-    
-  }
 }
+
 
