@@ -2,8 +2,8 @@ import random
 import requests
 import time
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from Music_163.Encryption import AES_Encrypt, Encrypt_String, Random_String
-from Music_163.Setting import SAVE_ADDRESS, KEY, FIXED_VALUE, IV, HEADERS
+from Encryption import AES_Encrypt, Encrypt_String, Random_String
+from Setting import SAVE_ADDRESS, KEY, FIXED_VALUE, IV, HEADERS
 
 # 关闭ssl验证错误提醒
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
