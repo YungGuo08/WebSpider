@@ -6,8 +6,8 @@ import emoji
 import time
 import datetime
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from Music_163.Encryption import AES_Encrypt, Encrypt_String, Random_String
-from Music_163.Setting import SAVE_ADDRESS, PAGE_NUMBER, COMMENT_NUMBER, \
+from Encryption import AES_Encrypt, Encrypt_String, Random_String
+from Setting import SAVE_ADDRESS, PAGE_NUMBER, COMMENT_NUMBER, \
     COMMENT_TYPE, SPECIAL_SYMBOLS_LIST, KEY, FIXED_VALUE, IV, HEADERS
 
 # 关闭ssl验证错误提醒
@@ -119,9 +119,11 @@ class Music_Comment(object):
         comment_count = 0
         for page_no in range(1, PAGE_NUMBER + 1):
             try:
+                # 评论页关键参数
                 self.key_parameter = r'{"rid":"R_SO_4_' + str(music_id) + '","threadId":"R_SO_4_' + str(music_id) + \
                                      '","pageNo":"' + str(page_no) + '","pageSize":"' + str(COMMENT_NUMBER) + \
                                      '","cursor":"' + str(self.cursor) + '","offset":"0","orderType":"1","csrf_token":""}'
+                # 获取评论数据
                 comment_data = self.post_page(self.url[1], self.encrypt())['data']
                 self.cursor = comment_data['cursor']
                 comment_list = None
@@ -159,8 +161,8 @@ class Music_Comment(object):
             comment_count += 20
         end_time = time.time()
         print('-' * 50)
-        print(f'保存完成：本次共保存{ok_count}条评论，{comment_count - ok_count}条评论未保存，'
-              f'用时：{int(end_time - run_time)}秒')
+        # print(f'保存完成：本次共保存{ok_count}条评论，{comment_count - ok_count}条评论未保存，用时：{int(end_time - run_time)}秒')
+        print(f'保存完成：本次共保存{ok_count}条评论，用时：{int(end_time - run_time)}秒')
 
 
 if __name__ == '__main__':
