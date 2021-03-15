@@ -2,7 +2,7 @@ import requests
 import re
 import execjs
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from .Setting import FROM_LANGUAGE, TO_LANGUAGE, TRANS_TYPE
+from Setting import FROM_LANGUAGE, TO_LANGUAGE, TRANS_TYPE
 
 # 关闭ssl验证错误提醒
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
