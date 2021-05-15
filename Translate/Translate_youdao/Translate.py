@@ -3,7 +3,7 @@ import time
 import random
 import string
 import hashlib
-from .Setting import ACTION, FROM_LANGUAGE, TO_LANGUAGE
+from Setting import ACTION, FROM_LANGUAGE, TO_LANGUAGE
 
 
 class Fanyi(object):
